@@ -1,0 +1,22 @@
+===Q2
+Clientes(#idCliente, nome, telefone)
+Reservas(#idReserva, &idCliente, &idDVD, dataRetirada)
+DVDs(#idDVD, nome, genero, duracao, &categoria)
+Categorias(#categoria, preco)
+
+===Q3
+nn:
+roteiros(codigo, nome, duracao, (dtSaida, vagas, precos), (numeroOrdem,nome,uf,pop,tempo))
+
+1fn:
+roteiros(#codigo, nome, duracao)
+pacotes(#&codigo, #dtSaida, vagas, precos)
+trechos(#&codigo, #numeroOrdem, nome, ufm pop, tempo)
+
+2fn:
+roteiros(#codigo, nome, duracao)
+pacotes(#&codigo, #dtSaida, vagas, precos)
+cidades(#codigoCidade, nome, uf, pop)
+trechos(#&codigo, #numeroOrdem, &codigoCidade, tempo)
+
+3fn=4fn

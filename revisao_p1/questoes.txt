@@ -1,0 +1,27 @@
+# questao 1
+
+π id, titulo (σ tipo = 'coletanea' ∨ tipo 'trilha sonora' (σ duracao > 90 ∧ duracao < 120 (cds)))
+
+# questao 2
+
+π nome(σ cds.interprete = interpretes.id ((σ ano = 2013 (cds))⨯(σ nacionalidade = 'brasileiro' ∧ tipo = 'grupo'(interpretes))))
+
+# questao 3
+
+π cds.id, cds.titulo, interpretes.nome((σ preco > 30(cds))⟕ cds.interprete = interpretes.id (interpretes))
+
+# questao 4
+
+π exemplares.codBarras, funcionarios.nome, funcionarios.id((σ (data = date('2011-05-01') ∨ data = date('2011-04-30')) ∧ formapgto ≠ 'cartao' (vendas)) ⟕ vendas.funcionario = funcionarios.id (funcionarios) ⨝ exemplares)
+
+# questao 5
+
+(σ status = 'ok'(exemplares)) ⨝ exemplares.cd = cds.id (cds)
+
+# questao 6
+
+π f1.id, f1.nome, f2.id, f2.nome (σ f1.turno = f2.turno ∧ f1.id>f2.id ((ρ f1 (funcionarios))⨯(ρ f2 (funcionarios))))
+
+# questao 7
+
+

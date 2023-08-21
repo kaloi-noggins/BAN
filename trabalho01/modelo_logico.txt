@@ -1,0 +1,25 @@
+Clientes(#ID_cliente, Nome, Referencia, &ID_endereco, Tipo)
+RIs:
+   .Tipo == 0 se pessoa física, CPF != NULL && CNPJ = NULL && Razao_social = NULL
+   .Tipo == 1 se pessoa jurídica, CPF = NULL && CNPJ != NULL && Razao_social != NULL
+
+Enderecos(#ID_endereco, CEP, Cidade, Bairro, Rua, Numero)
+
+Servico(#ID_servico, Descricacao, Metodo_pagamentos, &ID_cliente)
+
+===
+Orcamento(#ID_orcamento, Data_entrega, Valor, &ID_servico)
+
+Projetos(#ID_projeto, Desenho_tecnico, Medidas, Peso, Tempo_execusao, &ID_orcamento)
+
+Insumos(#ID_insumo, Nome, Tipo_insumo, Custo)
+
+Orcamento_Consome_Insumos(#ID, &ID_orcamento, &ID_insumo)
+
+Fornecedores(#ID_fornecedor, Nome, CNPJ, &ID_endereco)
+
+Fornecedores_fornecem_insumos(#ID,&ID_fornecedores, #ID_insumo)
+
+Prestadores_servico(#ID_prestador, Tipo_servico, CNPJ, Nome, Custo, &ID_endereco)
+
+Orcamento_contrata_prestadores(#ID, &ID_orcamento, #ID_prestador)
